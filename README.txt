@@ -13,7 +13,6 @@ It provides:
 
 This guide will help you:
 ✔ Setup virtual environment
-✔ Configure .env file
 ✔ Migrate database
 ✔ Run Django project
 ✔ Use APIs via Postman
@@ -29,9 +28,9 @@ Sampark/
 ├── mailapp/                     ← App containing APIs, models, utils
 ├── manage.py
 ├── requirements.txt
-├── .env.example                 ← Example environment configuration
+├── auth_system                  ← App containing APIs for authentication JWT 
 ├── docs/
-│    └── MailAPI.postman_collection.json  ← Postman API collection
+│    └── Sampark_postman_collection.json  ← Postman API collection
 ├── README.md                    ← This file
 
 ============================
@@ -50,7 +49,7 @@ Sampark/
 
 Clone the project:
 
-    git clone https://github.com/yourusername/sampark.git
+    git clone https://github.com/Darshan93027/Sampark.git
     cd sampark
 
 Create and activate a virtual environment:
@@ -67,29 +66,9 @@ Install required dependencies:
 
     pip install -r requirements.txt
 
-============================
-🔐 3. Create and Configure .env
-============================
-
-Create a `.env` file in the root of the project.
-
-# Django settings
-SECRET_KEY=your_secret_key
-DEBUG=True
-
-# Default email settings (used by platform for notifications)
-EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_USE_TLS=True
-EMAIL_HOST_USER=your_official_email@gmail.com
-EMAIL_HOST_PASSWORD=your_app_password
-
-These credentials are used by the platform itself.
-Users will later provide their own credentials for sending emails through the API.
 
 ============================
-🧪 4. Django Setup Commands
+🧪 3. Django Setup Commands
 ============================
 
 Run these commands inside the project folder:
@@ -103,7 +82,7 @@ Open your browser:
     http://127.0.0.1:8000/
 
 ============================
-🚀 5. Workflow
+🚀 4. Workflow
 ============================
 
 Once the server is running:
@@ -120,14 +99,14 @@ Once the server is running:
 8. Mail logs (sent/failed) are stored in the database.
 
 ============================
-📬 6. Postman API Collection
+📬 5. Postman API Collection
 ============================
 
 For quick testing:
 
 1. Open Postman
 2. Import:
-   - `docs/MailAPI.postman_collection.json`
+   - Sampark_postman_collection.json`
 3. Use the collection to:
    - Sign up
    - Log in
@@ -135,10 +114,10 @@ For quick testing:
    - Set OTP settings
    - Generate an API key
    - Send emails
-   - Verify OTP
+   
 
 ============================
-📦 7. Common Django Commands
+📦 6. Common Django Commands
 ============================
 
     python manage.py makemigrations
