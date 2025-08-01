@@ -1,0 +1,422 @@
+{
+	"info": {
+		"_postman_id": "bc0a05a0-5d9a-4b74-a2e7-901e2a661ba2",
+		"name": "Sampark Mail API Collection Copy",
+		"description": "Complete API collection for Sampark Mail System with authentication and email functionality",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46029484"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "User Signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"testuser\",\n    \"email\": \"test@example.com\",\n    \"password\": \"testpass123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Sampark/signup/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Sampark",
+								"signup",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"testpass123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Sampark/login/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Sampark",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate API Key",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"duration\": 5\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Sampark/refresh-api-key/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Sampark",
+								"refresh-api-key",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refresh_token\": \"{{refresh_token}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Sampark/refresh-token/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Sampark",
+								"refresh-token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refresh_token\": \"{{refresh_token}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Sampark/logout/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Sampark",
+								"logout",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Email Configuration",
+			"item": [
+				{
+					"name": "Add Email Credentials",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email_host_user\": \"your-email@gmail.com\",\n    \"email_host_password\": \"your-app-password\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Sampark/credentials/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Sampark",
+								"credentials",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Email Credentials",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/Sampark/credentials/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Sampark",
+								"credentials",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Configure OTP Settings",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"otp_digits\": 6\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Sampark/otp-config/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Sampark",
+								"otp-config",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get OTP Configuration",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/Sampark/otp-config/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Sampark",
+								"otp-config",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Email Operations",
+			"item": [
+				{
+					"name": "Send Normal Email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"recipient_email\": \"recipient@example.com\",\n    \"subject\": \"Test Normal Email\",\n    \"email_body\": \"This is a test normal email.\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Sampark/send-email/{{api_key}}/?code=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Sampark",
+								"send-email",
+								"{{api_key}}",
+								""
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send OTP Email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"recipient_email\": \"recipient@example.com\",\n    \"subject\": \"Your OTP Code\",\n    \"email_body\": \"Please use the OTP below to verify your account.\"\n }"
+						},
+						"url": {
+							"raw": "{{base_url}}/Sampark/send-email/{{api_key}}/?code=2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Sampark",
+								"send-email",
+								"{{api_key}}",
+								""
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Email Records",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/Sampark/records/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Sampark",
+								"records",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "refresh_token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "api_key",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
