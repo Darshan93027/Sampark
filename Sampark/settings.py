@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config
 from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -162,18 +161,6 @@ SIMPLE_JWT = {
     'TOKEN_TYPE_CLAIM': 'token_type',
 
     'JTI_CLAIM': 'jti',
-}
-
-# CORS Configuration
-CORS_ALLOW_ALL_ORIGINS = True  # Only for development
-CORS_ALLOW_CREDENTIALS = True
-
-# Cache Configuration
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'unique-snowflake',
-    }
 }
 
 # Email Configuration (Platform's default email settings)
