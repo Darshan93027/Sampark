@@ -79,7 +79,7 @@ urlpatterns = [
                 <div style="margin-top: 30px;"></div>
 
                 <p>Check out the 
-                    <a href='https://github.com/yourusername/sampark' target="_blank">GitHub Repository</a>.
+                    <a href='https://github.com/Darshan93027/Sampark' target="_blank">GitHub Repository</a>.
                 </p>
                 
                 <div style="margin-top: 30px;"></div>
